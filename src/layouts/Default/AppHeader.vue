@@ -1,5 +1,5 @@
 <template>
-  <div class="app-header">
+  <header class="app-header">
     <b-navbar toggleable="lg" type="dark" variant="info">
     <b-navbar-brand href="#">Stock trader</b-navbar-brand>
 
@@ -29,7 +29,7 @@
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
-  </div>
+  </header>
 
 </template>
 
@@ -50,6 +50,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+	.app-header {
+		margin-bottom: 5vh;
+	}
 </style>

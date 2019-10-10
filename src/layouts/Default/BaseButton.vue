@@ -1,6 +1,6 @@
 <template>
   <button
-    class="base-button"
+    class="button"
     @click="handleClick"
     >
 
@@ -19,6 +19,26 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+	.button {
+		-webkit-appearance: none;
+		background-color: #13ab7d;
+		color: white;
+		padding: 0.6rem 1rem;
+		border-radius: 4px;
+		border: 0;
+		text-transform: uppercase;
+		font-size: 0.75rem;
+		transition: 0.2s opacity ease;
+		&:focus {
+			outline: 0;
+			opacity: 0.9;
+		}
+		&:active {
+			opacity: 0.5;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+	}
 </style>

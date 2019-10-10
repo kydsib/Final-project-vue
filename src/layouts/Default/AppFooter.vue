@@ -1,6 +1,6 @@
 <template>
   <div class="app-footer">
-      Hi from footer
+      Add a quote for a day
   </div>
 </template>
 

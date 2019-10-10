@@ -1,8 +1,8 @@
 <template>
   <div class="stock-box">
       <div class="stock-box--info">
-          <span>AIG</span>
-          <span>$32</span>
+          <p class="company-name">AIG</p>
+          <p class="stock-price">($32)</p>
       </div>
       <div class="stock-box--action">
 
@@ -17,22 +17,32 @@
 <script>
 import BaseButton from './BaseButton'
 export default {
-  name: 'StockBox'
+  name: 'StockBox',
+  components: {
+    BaseButton
+  }
 }
 </script>
 
 <style lang="scss">
 	.stock-box {
-		height: 150px;
-		width: 40vw;
 		border: 1px solid black;
 		border-radius: 5px;
 		&--info {
 			background-color: #68f1c8;
-			padding: 10px;
+			padding: 15px;
+			display: flex;
+		}
+		p {
+			margin: 0;
 		}
 		&--action {
-			padding: 10px;
+			display: flex;
+			justify-content: space-between;
+			padding: 15px;
+		}
+		.company-name {
+			margin-right: 10px;
 		}
 	}
 </style>

@@ -1,6 +1,11 @@
 <template>
   <div class="portfolio">
       <StockBox />
+      <StockBox />
+      <StockBox />
+      <StockBox />
+      <StockBox />
+      <StockBox />
   </div>
 </template>
 
@@ -14,6 +19,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+	.portfolio {
+		display: grid;
+		grid-gap: 15px;
+		grid-template-columns: repeat(2, minmax(300px, 1fr));
+	}
 </style>
