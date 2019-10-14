@@ -37,16 +37,6 @@
 // import routes from '@/routes'
 export default {
   name: 'AppHeader'
-  // data () {
-  //   return {
-  //     routes
-  //   }
-  // },
-  // computed: {
-  //   links () {
-  //     return this.routes.filter(route => route.name)
-  //   }
-  // }
 }
 </script>
 

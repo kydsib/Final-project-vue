@@ -1,21 +1,42 @@
 <template>
-  <div class="portfolio">
-      <StockBox />
-      <StockBox />
-      <StockBox />
-      <StockBox />
-      <StockBox />
-      <StockBox />
+  <div class="portfolio" >
+    <div
+      v-for="stock in stocks"
+      :key="stock.id"
+      class="porfolio__stock"
+        >
+    <StockBox
+      :stock="stock"
+       />
+
+  </div>
+
   </div>
 </template>
 
 <script>
-import StockBox from '../layouts/Default/StockBox'
+import StockBox from '../components/StockBox'
+import { FETCH_STOCKS } from '@/store/modules/Portfolio/action-types'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Portfolio',
   components: {
     StockBox
+  },
+  computed: {
+    ...mapGetters('Portfolio', {
+      stocks: 'stocks'
+    })
+  },
+  created () {
+    this.fetchStocks()
+  },
+  methods: {
+    ...mapActions('Portfolio', {
+      fetchStocks: FETCH_STOCKS
+    })
   }
+
 }
 </script>
 

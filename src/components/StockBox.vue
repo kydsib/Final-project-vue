@@ -1,12 +1,12 @@
 <template>
   <div class="stock-box">
       <div class="stock-box--info">
-          <p class="company-name">AIG</p>
-          <p class="stock-price">($32)</p>
+          <p class="company-name">{{stock.name}} shares {{stock.count}}</p>
+          <p class="stock-price">$ {{stock.price}}</p>
       </div>
       <div class="stock-box--action">
 
-          <input type="text">
+          <BaseInput  />
           <BaseButton>
             Buy
           </BaseButton>
@@ -15,11 +15,25 @@
 </template>
 
 <script>
-import BaseButton from './BaseButton'
+import BaseButton from '../layouts/Default/BaseButton'
+import BaseInput from '../layouts/Default/BaseInput'
 export default {
   name: 'StockBox',
   components: {
-    BaseButton
+    BaseButton,
+    BaseInput
+  },
+  props: {
+    stock: {
+      type: Object,
+      // required: true,
+      default: () => ({
+        name: null,
+        count: null,
+        id: null,
+        price: null
+      })
+    }
   }
 }
 </script>

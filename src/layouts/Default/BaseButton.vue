@@ -40,5 +40,9 @@ export default {
 		&:hover {
 			cursor: pointer;
 		}
+
+		.btn-sell {
+			background-color: #bb3416;
+		}
 	}
 </style>

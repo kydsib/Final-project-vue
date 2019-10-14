@@ -1,15 +1,26 @@
 <template>
   <div class="stocks">
-      My Stocks
+      <StockBox />
+      <StockBox />
+       <StockBox />
+      <StockBox />
   </div>
 </template>
 
 <script>
+import StockBox from '../components/StockBox'
 export default {
-
+  name: 'Stocks',
+  components: {
+    StockBox
+  }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+	.stocks {
+		display: grid;
+		grid-gap: 15px;
+		grid-template-columns: repeat(2, minmax(300px, 1fr));
+	}
 </style>
