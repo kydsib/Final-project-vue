@@ -1,4 +1,5 @@
 export default () => ({
   status: null,
-  stocks: []
+  stocks: [],
+  balance: {}
 })

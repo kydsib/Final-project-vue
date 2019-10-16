@@ -1,2 +1,4 @@
 // export const FETCH_DATA = 'FETCH_DATA'
 export const FETCH_STOCKS = 'FETCH_STOCKS'
+export const FETCH_ACCOUNT_DATA = 'FETCH_ACCOUNT_DATA'
+export const SELL_STOCK = 'SELL_STOCK'

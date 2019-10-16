@@ -1,18 +1,39 @@
 <template>
   <div class="stocks">
-      <StockBox />
-      <StockBox />
-       <StockBox />
-      <StockBox />
+    <div
+    v-for="stock in stocks"
+    :key="stock.id"
+    class="stocks__list"
+    >
+      <BuyStockBox
+      :stock="stock"
+       />
+    </div>
+
   </div>
 </template>
 
 <script>
-import StockBox from '../components/StockBox'
+import BuyStockBox from '../components/BuyStockBox'
+import { FETCH_US_EQUITIES } from '@/store/modules/Stocks/action-types'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Stocks',
   components: {
-    StockBox
+    BuyStockBox
+  },
+  computed: {
+    ...mapGetters('Stocks', {
+      stocks: 'stocks'
+    })
+  },
+  created () {
+    this.fetchEquities()
+  },
+  methods: {
+    ...mapActions('Stocks', {
+      fetchEquities: FETCH_US_EQUITIES
+    })
   }
 }
 </script>

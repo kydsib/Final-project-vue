@@ -2,15 +2,12 @@
   <div class="stock-box">
       <div class="stock-box--info">
           <p class="company-name">{{stock.name}}</p>
-          <p class="value-count"> (${{stock.price}} | Quantity: {{stock.count}})</p>
-          <p class="value-total">Total val. - ${{stock.value}}</p>
       </div>
       <div class="stock-box--action">
 
-          <BaseInput class="stock-qty" aria-placeholder="enter qty" />
-           <BaseInput class="stock-price"  placeholder="enter sell price" />
+          <BaseInput  />
           <BaseButton>
-            Sell
+            Buy
           </BaseButton>
       </div>
   </div>
@@ -20,7 +17,7 @@
 import BaseButton from '../layouts/Default/BaseButton'
 import BaseInput from '../layouts/Default/BaseInput'
 export default {
-  name: 'StockBox',
+  name: 'BuyStockBox',
   components: {
     BaseButton,
     BaseInput
@@ -45,7 +42,7 @@ export default {
 		border: 1px solid black;
 		border-radius: 5px;
 		&--info {
-			background-color: #68f1c8;
+			background-color: #7d68f1;
 			padding: 15px;
 			display: flex;
 		}

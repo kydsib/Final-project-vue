@@ -1,1 +1,2 @@
 export const SET_STOCKS = 'SET_STOCKS'
+export const SET_CASH_BALANCE = 'SET_CASH_BALANCE'

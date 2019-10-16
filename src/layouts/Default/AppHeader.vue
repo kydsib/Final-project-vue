@@ -24,8 +24,7 @@
           <b-dropdown-item href="#">Save</b-dropdown-item>
           <b-dropdown-item href="#">Load</b-dropdown-item>
         </b-nav-item-dropdown>
-
-        <b-nav-item href="#">Funds:</b-nav-item>
+        <b-nav-item v-if="balance">Funds: {{parseInt(balance.buying_power)}}</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -35,8 +34,23 @@
 
 <script>
 // import routes from '@/routes'
+import { FETCH_ACCOUNT_DATA } from '@/store/modules/Portfolio/action-types'
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'AppHeader'
+  name: 'AppHeader',
+  computed: {
+    ...mapGetters('Portfolio', {
+      balance: 'balance'
+    })
+  },
+  created () {
+    this.fetchBalance()
+  },
+  methods: {
+    ...mapActions('Portfolio', {
+      fetchBalance: FETCH_ACCOUNT_DATA
+    })
+  }
 }
 </script>
 
