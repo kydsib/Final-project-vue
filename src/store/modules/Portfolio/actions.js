@@ -1,6 +1,10 @@
 import axios from '@/packages/axios'
-import { FETCH_STOCKS, FETCH_ACCOUNT_DATA } from './action-types'
-import { SET_STOCKS, SET_CASH_BALANCE } from './mutation-types'
+import { FETCH_STOCKS, FETCH_ACCOUNT_DATA, SELL_STOCK } from './action-types'
+import {
+  SET_STOCKS,
+  SET_CASH_BALANCE,
+  SELL_PORTFOLIO_STOCK
+} from './mutation-types'
 
 export default {
   async [FETCH_ACCOUNT_DATA] ({ commit }) {
@@ -19,21 +23,16 @@ export default {
       console.log(error)
     }
   },
-  ,
-  async [SELL_STOCK] ({ commit }) {
-    // nebaigtas pardavimas
+  async [SELL_STOCK] ({ commit }, { symbol, qty }) {
     try {
-      const { data } = await axios({
-        method: 'post',
-        url: '/orders',
-        data: {
-          gty: 1,
-          side: 'sell',
-          symbol: 'VUZI',
-          time_in_force: 'day',
-          type: 'market'
-        }
+      const { data } = await axios.post('/orders', {
+        qty,
+        side: 'sell',
+        symbol,
+        time_in_force: 'day',
+        type: 'market'
       })
+      commit(SELL_PORTFOLIO_STOCK, data)
     } catch (error) {
       console.log(error)
     }

@@ -7,9 +7,9 @@
       </div>
       <div class="stock-box--action">
 
-          <BaseInput class="stock-qty" aria-placeholder="enter qty" />
-           <BaseInput class="stock-price"  placeholder="enter sell price" />
-          <BaseButton>
+          <BaseInput v-model="qty" class="stock-qty" placeholder="enter qty" />
+
+          <BaseButton @click="sell ">
             Sell
           </BaseButton>
       </div>
@@ -17,13 +17,30 @@
 </template>
 
 <script>
+
+import { SELL_STOCK } from '@/store/modules/Portfolio/action-types'
 import BaseButton from '../layouts/Default/BaseButton'
 import BaseInput from '../layouts/Default/BaseInput'
+import { mapActions } from 'vuex'
 export default {
   name: 'StockBox',
   components: {
     BaseButton,
     BaseInput
+  },
+  data () {
+    return {
+      symbol: null,
+      qty: 0
+    }
+  },
+  methods: {
+    ...mapActions('Portfolio', {
+      sellStock: SELL_STOCK
+    }),
+    sell () {
+      this.sellStock({ symbol: this.stock.name, qty: this.qty })
+    }
   },
   props: {
     stock: {

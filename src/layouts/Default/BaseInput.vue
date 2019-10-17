@@ -1,28 +1,26 @@
 <template>
   <div class="input-field">
       <label for=""></label>
-      <!-- NEPABAIGTAS -->
-      <input type="text">
+      <input
+      placeholder="Quantity"
+      :value="value"
+      type="number"
+      id="stock-count"
+      @input="$emit('input', $event.target.value)"
+      >
   </div>
 </template>
 
 <script>
 export default {
   name: 'BaseInput',
-  model: {
-    event: 'model:input'
-  },
   props: {
     value: {
-      type: String,
-      default: null
+      type: [String, Number],
+      default: 0
     },
     type: {
-      type: String,
-      default: 'text'
-    },
-    labelText: {
-      type: String,
+      type: Number,
       default: null
     }
   }

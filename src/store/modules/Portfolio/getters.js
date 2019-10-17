@@ -5,5 +5,7 @@ export default {
       return stock
     })
   },
-  balance: state => state.balance
+  balance: state => state.balance,
+  quantity: state => state.quantity,
+  symbol: state => state.symbol
 }
