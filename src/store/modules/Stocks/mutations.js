@@ -1,4 +1,4 @@
-import { SET_NEW_STOCKS } from './mutation-types'
+import { SET_NEW_STOCKS, ADD_NEW_STOCKS } from './mutation-types'
 
 export default {
   [SET_NEW_STOCKS] (state, stocks) {
@@ -10,5 +10,8 @@ export default {
       // stock.value = stock.market_value
       return stock
     })
+  },
+  [ADD_NEW_STOCKS] (state, quantity) {
+    state.quantity = quantity
   }
 }

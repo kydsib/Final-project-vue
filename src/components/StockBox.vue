@@ -7,9 +7,9 @@
       </div>
       <div class="stock-box--action">
 
-          <BaseInput v-model="qty" class="stock-qty" placeholder="enter qty" />
+          <BaseInput v-model="qty" class="stock-qty" />
 
-          <BaseButton @click="sell ">
+          <BaseButton @click="sell">
             Sell
           </BaseButton>
       </div>
@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       symbol: null,
-      qty: 0
+      qty: null
     }
   },
   methods: {

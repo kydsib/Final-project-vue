@@ -1,1 +1,2 @@
 export const SET_NEW_STOCKS = 'SET_NEW_STOCKS'
+export const ADD_NEW_STOCKS = 'ADD_NEW_STOCKS'

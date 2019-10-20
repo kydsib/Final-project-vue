@@ -4,5 +4,7 @@ export default {
       stock = { ...stock }
       return stock
     })
-  }
+  },
+  quantity: state => state.quantity,
+  symbol: state => state.symbol
 }

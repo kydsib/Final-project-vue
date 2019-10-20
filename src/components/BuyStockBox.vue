@@ -5,8 +5,8 @@
       </div>
       <div class="stock-box--action">
 
-          <BaseInput  />
-          <BaseButton>
+          <BaseInput  v-model="qty"/>
+          <BaseButton @click="buy">
             Buy
           </BaseButton>
       </div>
@@ -14,13 +14,29 @@
 </template>
 
 <script>
+import { BUY_STOCK } from '@/store/modules/Stocks/action-types'
 import BaseButton from '../layouts/Default/BaseButton'
 import BaseInput from '../layouts/Default/BaseInput'
+import { mapActions } from 'vuex'
 export default {
   name: 'BuyStockBox',
   components: {
     BaseButton,
     BaseInput
+  },
+  data () {
+    return {
+      symbol: null,
+      qty: null
+    }
+  },
+  methods: {
+    ...mapActions('Stocks', {
+      buyStock: BUY_STOCK
+    }),
+    buy () {
+      this.buyStock({ symbol: this.stock.name, qty: this.qty })
+    }
   },
   props: {
     stock: {

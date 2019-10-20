@@ -1,6 +1,6 @@
 import axios from '@/packages/axios'
 import { FETCH_US_EQUITIES, BUY_STOCK } from './action-types'
-import { SET_NEW_STOCKS } from './mutation-types'
+import { SET_NEW_STOCKS, ADD_NEW_STOCKS } from './mutation-types'
 
 let randomStocks = []
 function pickStock (input) {
@@ -26,16 +26,20 @@ export default {
       const { data } = await axios.get('/assets')
       pickStock(data)
       commit(SET_NEW_STOCKS, randomStocks)
-
-      // commit(SET_NEW_STOCKS, data)
     } catch (error) {
       console.log(error)
     }
   },
-  async [BUY_STOCK] ({ commit }) {
-    // susitvarkyti pirkima
+  async [BUY_STOCK] ({ commit }, { symbol, qty }) {
     try {
-      const { data } = await axios.post('/orders')
+      const { data } = await axios.post('/orders', {
+        qty,
+        side: 'buy',
+        symbol,
+        type: 'market',
+        time_in_forde: 'day'
+      })
+      commit(ADD_NEW_STOCKS, data)
     } catch (error) {
       console.log(error)
     }

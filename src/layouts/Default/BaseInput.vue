@@ -4,6 +4,7 @@
       <input
       placeholder="Quantity"
       :value="value"
+      min="0"
       type="number"
       id="stock-count"
       @input="$emit('input', $event.target.value)"
@@ -17,7 +18,7 @@ export default {
   props: {
     value: {
       type: [String, Number],
-      default: 0
+      default: null
     },
     type: {
       type: Number,
