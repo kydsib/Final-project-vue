@@ -32,12 +32,14 @@ export default {
   },
   async [BUY_STOCK] ({ commit }, { symbol, qty }) {
     try {
+      console.log(symbol)
+      console.log(qty)
       const { data } = await axios.post('/orders', {
         qty,
         side: 'buy',
         symbol,
         type: 'market',
-        time_in_forde: 'day'
+        time_in_force: 'day'
       })
       commit(ADD_NEW_STOCKS, data)
     } catch (error) {

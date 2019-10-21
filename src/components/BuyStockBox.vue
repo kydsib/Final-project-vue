@@ -43,10 +43,7 @@ export default {
       type: Object,
       // required: true,
       default: () => ({
-        name: null,
-        count: null,
-        id: null,
-        price: null
+        name: null
       })
     }
   }

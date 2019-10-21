@@ -18,12 +18,7 @@
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-         <b-nav-item href="#">End Day</b-nav-item>
 
-        <b-nav-item-dropdown text="Save &amp; Load" right>
-          <b-dropdown-item href="#">Save</b-dropdown-item>
-          <b-dropdown-item href="#">Load</b-dropdown-item>
-        </b-nav-item-dropdown>
         <b-nav-item v-if="balance">Funds: {{parseInt(balance.buying_power)}}</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
